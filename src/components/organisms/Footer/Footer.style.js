@@ -144,6 +144,7 @@ export const ContactSection = styled.section`
   @media screen and (min-width: 1280px) {
     flex-direction: column;
     width: 60%;
+    gap: 48px;
   }
 `;
 

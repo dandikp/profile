@@ -9,6 +9,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 html,
@@ -22,6 +23,7 @@ body {
 *::before,
 *::after {
   box-sizing: border-box;
+  scroll-behavior: inherit;
 }
 
 * {
