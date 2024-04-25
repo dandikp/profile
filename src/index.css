@@ -61,3 +61,7 @@ h5,
 h6 {
   overflow-wrap: break-word;
 }
+
+#root {
+  background-color: rgb(26, 26, 26);
+}
