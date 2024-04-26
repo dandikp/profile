@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Wrapper = styled.footer`
@@ -259,4 +260,29 @@ export const CreditContent = styled(ContentBase)`
   @media screen and (min-width: 1280px) {
     max-width: 1280px;
   }
+`;
+
+export const Logo = styled(Link)`
+  display: flex;
+  flex-wrap: nowrap;
+  text-decoration: none;
+  color: rgb(255, 255, 255) !important;
+`;
+
+export const LogoText1 = styled.span`
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+`;
+
+export const LogoText2 = styled.span`
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
 `;

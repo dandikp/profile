@@ -7,6 +7,9 @@ import {
   Content,
   Credit,
   CreditContent,
+  Logo,
+  LogoText1,
+  LogoText2,
   MyContact,
   MySocials,
   ProfileSection,
@@ -30,7 +33,10 @@ const Footer = () => {
         <Content>
           <ProfileSection>
             <Section>
-              <SectionTitle>DANDI PRATAMA</SectionTitle>
+              <Logo to="/" title="About">
+                <LogoText1>dandi</LogoText1>
+                <LogoText2>pratama</LogoText2>
+              </Logo>
               <SectionParagraph color="grey">
                 Web Developer, currently working at{' '}
                 <a href="https://baleomol.com" target="_blank">
