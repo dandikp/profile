@@ -11,7 +11,7 @@ export const Wrapper = styled.header`
   gap: 0px;
   height: 80px;
   justify-content: center;
-  padding: 24px 120px;
+  padding: 24px;
   position: relative;
 `;
 
@@ -38,7 +38,11 @@ export const LogoText1 = styled.span`
   font-weight: 800;
   font-style: normal;
   color: rgb(255, 255, 255);
-  font-size: 20px;
+  font-size: 18px;
+
+  @media query and (min-width: 992px) {
+    font-size: 20px;
+  }
 `;
 
 export const LogoText2 = styled.span`
@@ -47,7 +51,11 @@ export const LogoText2 = styled.span`
   font-weight: 400;
   font-style: normal;
   color: rgb(255, 255, 255);
-  font-size: 20px;
+  font-size: 18px;
+
+  @media query and (min-width: 992px) {
+    font-size: 20px;
+  }
 `;
 
 export const NavWrapper = styled.div`
