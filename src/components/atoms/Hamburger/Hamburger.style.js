@@ -22,13 +22,14 @@ export const Patty = styled.div`
 export const TopPatty = styled(Patty)`
   position: absolute;
   left: calc(50.00000000000002% - 24px / 2);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   top: 12px;
 
   ${(props) => {
     if (props.active) {
       return css`
         transform: translateX(0px) translateY(3px) rotate(-45deg);
+        transition: all 0.3s ease;
       `;
     }
   }}
@@ -38,12 +39,13 @@ export const BottomPatty = styled(Patty)`
   position: absolute;
   bottom: 12px;
   left: calc(50.00000000000002% - 24px / 2);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 
   ${(props) => {
     if (props.active) {
       return css`
         transform: translateX(0px) translateY(-3px) rotate(45deg);
+        transition: all 0.3s ease;
       `;
     }
   }}

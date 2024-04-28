@@ -1,8 +1,11 @@
+import { useGSAP } from '@gsap/react';
 import { EmailOutlined } from '@mui/icons-material';
 import { useMediaQuery } from '@uidotdev/usehooks';
-import React, { Fragment } from 'react';
+import gsap from 'gsap';
+import React, { Fragment, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import NavigationLink from '../../atoms/NavigationLink/NavigationLink';
+import MobileMenu from '../MobileMenu/MobileMenu';
 import {
   Contact,
   ContactText,
@@ -18,24 +21,54 @@ import {
 import Hamburger from '../../atoms/Hamburger/Hamburger';
 
 const Header = () => {
-  let location = useLocation();
-  const isSmDvc = useMediaQuery('only screen and (max-width: 767px)');
-  const isMdDvc = useMediaQuery(
-    'only screen and (min-width: 768px) and (max-width: 991px)',
-  );
+  const location = useLocation();
+  const wrapperRef = useRef(null);
+  const mobileMenuRef = useRef(null);
+  const tl = useRef();
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isLgDvc = useMediaQuery(
     'only screen and (min-width: 992px) and (max-width: 1279px)',
   );
   const isXLDvc = useMediaQuery('only screen and (min-width: 1280px)');
   const isLargeScreen = isLgDvc || isXLDvc;
 
+  const onClickHandler = () => setIsMenuOpen(!isMenuOpen);
+
+  useGSAP(
+    () => {
+      tl.current = gsap.timeline({ paused: true });
+      tl.current.to(document.body, {
+        overflowY: 'hidden',
+        duration: 0,
+      });
+      tl.current.to(wrapperRef.current, {
+        backgroundColor: '#000',
+        position: 'fixed',
+        zIndex: 1000,
+        top: 0,
+        height: '100dvh',
+        padding: '26px 20px',
+        duration: 0.3,
+        autoAlpha: 1,
+      });
+    },
+    { scope: wrapperRef },
+  );
+
+  useGSAP(() => {
+    if (isMenuOpen) tl.current.play();
+    else tl.current.reverse();
+  }, [isMenuOpen]);
+
   return (
-    <Wrapper>
+    <Wrapper ref={wrapperRef}>
       <Container>
         <Logo to="/" title="About">
           <LogoText1>dandi</LogoText1>
           <LogoText2>pratama</LogoText2>
         </Logo>
+
         {isLargeScreen ? (
           <Fragment>
             <NavWrapper>
@@ -43,13 +76,13 @@ const Header = () => {
                 <NavigationLink
                   to="/"
                   title="About"
-                  active={location.pathname === '/' ? 1 : 0}>
+                  active={location.pathname === '/' ? 1 : ''}>
                   About
                 </NavigationLink>
                 <NavigationLink
                   to="/works"
                   title="Works"
-                  active={location.pathname === '/works' ? 1 : 0}>
+                  active={location.pathname === '/works' ? 1 : ''}>
                   Works
                 </NavigationLink>
               </Navigation>
@@ -63,9 +96,17 @@ const Header = () => {
             </Contact>
           </Fragment>
         ) : (
-          <Hamburger />
+          <Hamburger active={isMenuOpen} onClick={onClickHandler} />
         )}
       </Container>
+
+      {!isLargeScreen && (
+        <MobileMenu
+          ref={mobileMenuRef}
+          active={isMenuOpen}
+          onClick={onClickHandler}
+        />
+      )}
     </Wrapper>
   );
 };

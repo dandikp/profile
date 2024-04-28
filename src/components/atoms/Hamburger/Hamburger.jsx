@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { BottomPatty, TopPatty, Wrapper } from './Hamburger.style';
 
-const Hamburger = () => {
-  const [isActive, setIsActive] = useState(false);
+const Hamburger = ({ active, onClick }) => {
+  const onClickHandler = () => {
+    if (typeof onClick === 'function') onClick();
+  };
+
   return (
-    <Wrapper onClick={() => setIsActive(!isActive)}>
-      <TopPatty active={isActive ? 1 : 0} />
-      <BottomPatty active={isActive ? 1 : 0} />
+    <Wrapper onClick={onClickHandler}>
+      <TopPatty active={active ? 1 : 0} />
+      <BottomPatty active={active ? 1 : 0} />
     </Wrapper>
   );
 };

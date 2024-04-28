@@ -4,10 +4,13 @@ import styled, { css } from 'styled-components';
 export const Wrapper = styled.div`
   position: relative;
   width: fit-content;
-  height: 24px;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+
+  @media screen and (min-width: 922px) {
+    height: 24px;
+  }
 `;
 
 export const Decoration = styled.div`
@@ -49,5 +52,12 @@ export const NavLink = styled(Link)`
   text-decoration: none;
   color: rgb(255, 255, 255) !important;
   font-weight: 600;
-  text-transform: uppercase;
+  font-size: 44px;
+  line-height: 1;
+
+  @media screen and (min-width: 922px) {
+    font-size: 16px;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
 `;

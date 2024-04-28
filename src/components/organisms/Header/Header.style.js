@@ -3,16 +3,23 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.header`
   width: 100%;
-  height: 80px;
-  align-items: center;
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  gap: 0px;
-  height: 80px;
-  justify-content: center;
+  flex-flow: column nowrap;
+  gap: 48px;
+  min-height: 80px;
   padding: 24px;
   position: relative;
+  height: 80px;
+  background-color: rgb(26, 26, 26);
+  align-items: center;
+
+  @media screen and (min-width: 992px) {
+    flex-direction: row;
+    gap: 0;
+    height: 80px;
+    position: relative;
+    justify-content: center;
+  }
 `;
 
 export const Container = styled.div`
@@ -22,6 +29,7 @@ export const Container = styled.div`
   justify-content: space-between;
   max-width: 1280px;
   gap: 80px;
+  height: 28px;
 `;
 
 export const Logo = styled(Link)`
