@@ -61,7 +61,6 @@ export const NavLink = styled(Link)`
       props.active ? 'rgb(255, 255, 255)' : 'rgba(255, 255, 255, 0.7)'};
   }
 
-
   @media screen and (max-width: 991px) {
     transition: all 0.4s ease;
     position: relative;
@@ -86,6 +85,7 @@ export const NavLink = styled(Link)`
         `;
       }
     }}
+  }
 
   @media screen and (min-width: 992px) {
     color: rgb(255, 255, 255);
