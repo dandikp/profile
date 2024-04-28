@@ -51,14 +51,14 @@ export const InteractiveDecoration = styled.div`
 export const NavLink = styled(Link)`
   text-decoration: none;
   color: ${(props) =>
-    props.active ? 'rgb(255, 255, 255)' : 'rgba(255, 255, 255, 0.7)'};
+    props.active ? 'rgb(255, 255, 255)' : 'rgb(201, 200, 200)'};
   font-weight: 600;
   font-size: 44px;
   line-height: 1;
 
   &:visited {
     color: ${(props) =>
-      props.active ? 'rgb(255, 255, 255)' : 'rgba(255, 255, 255, 0.7)'};
+      props.active ? 'rgb(255, 255, 255)' : 'rgb(201, 200, 200)'};
   }
 
   @media screen and (max-width: 991px) {

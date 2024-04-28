@@ -12,6 +12,7 @@ export const Wrapper = styled.header`
   height: 80px;
   background-color: rgb(26, 26, 26);
   align-items: center;
+  overflow: hidden;
 
   @media screen and (min-width: 992px) {
     flex-direction: row;
