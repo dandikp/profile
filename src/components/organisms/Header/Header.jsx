@@ -104,6 +104,7 @@ const Header = () => {
         <MobileMenu
           ref={mobileMenuRef}
           active={isMenuOpen}
+          activeMenu={location.pathname}
           onClick={onClickHandler}
         />
       )}

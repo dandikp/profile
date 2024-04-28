@@ -50,14 +50,51 @@ export const InteractiveDecoration = styled.div`
 
 export const NavLink = styled(Link)`
   text-decoration: none;
-  color: rgb(255, 255, 255) !important;
+  color: ${(props) =>
+    props.active ? 'rgb(255, 255, 255)' : 'rgba(255, 255, 255, 0.7)'};
   font-weight: 600;
   font-size: 44px;
   line-height: 1;
 
-  @media screen and (min-width: 922px) {
+  &:visited {
+    color: ${(props) =>
+      props.active ? 'rgb(255, 255, 255)' : 'rgba(255, 255, 255, 0.7)'};
+  }
+
+
+  @media screen and (max-width: 991px) {
+    transition: all 0.4s ease;
+    position: relative;
+
+    &:hover {
+      color: rgb(255, 255, 255);
+    }
+
+    ${(props) => {
+      if (props.active) {
+        return css`
+          &::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 2px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(255, 255, 255);
+            top: 60%;
+          }
+        `;
+      }
+    }}
+
+  @media screen and (min-width: 992px) {
+    color: rgb(255, 255, 255);
     font-size: 16px;
     line-height: 1.5;
     text-transform: uppercase;
+
+    &:visited {
+      color: rgb(255, 255, 255);
+    }
   }
 `;

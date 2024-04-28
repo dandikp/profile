@@ -21,7 +21,9 @@ const NavigationLink = ({ children, active, ...props }) => {
 
   return (
     <Wrapper onMouseEnter={mouseEnterHandler} onMouseLeave={mouseLeaveHandler}>
-      <NavLink {...props}>{children}</NavLink>
+      <NavLink {...props} active={Number(active)}>
+        {children}
+      </NavLink>
       {isLgDvc && active && <Decoration />}
       {isLgDvc && !active && <InteractiveDecoration active={isHover} />}
     </Wrapper>
