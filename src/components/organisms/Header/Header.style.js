@@ -13,6 +13,7 @@ export const Wrapper = styled.header`
   background-color: rgb(26, 26, 26);
   align-items: center;
   overflow: hidden;
+  z-index: 10;
 
   @media screen and (min-width: 992px) {
     flex-direction: row;

@@ -35,26 +35,28 @@ const Header = () => {
 
   const onClickHandler = () => setIsMenuOpen(!isMenuOpen);
 
-  useGSAP(
-    () => {
-      tl.current = gsap.timeline({ paused: true });
-      tl.current.to(document.body, {
-        overflowY: 'hidden',
-        duration: 0,
-      });
-      tl.current.to(wrapperRef.current, {
-        backgroundColor: '#000',
-        position: 'fixed',
-        zIndex: 1000,
-        top: 0,
-        height: '100dvh',
-        padding: '26px 20px',
-        duration: 0.3,
-        autoAlpha: 1,
-      });
-    },
-    { scope: wrapperRef },
-  );
+  useGSAP(() => {
+    tl.current = gsap.timeline({ paused: true });
+    tl.current.to('.content-container', {
+      y: 80,
+      duration: 0,
+    });
+    tl.current.to(document.body, {
+      overflowY: 'hidden',
+      duration: 0,
+    });
+
+    tl.current.to(wrapperRef.current, {
+      backgroundColor: '#000',
+      position: 'fixed',
+      zIndex: 1000,
+      top: 0,
+      height: '100dvh',
+      padding: '26px 20px',
+      duration: 0.3,
+      autoAlpha: 1,
+    });
+  });
 
   useGSAP(() => {
     if (isMenuOpen) tl.current.play();
